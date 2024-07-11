@@ -46,6 +46,20 @@ function verificarMudanca(event) {
   const name = event.target.name; //Pegar o nome do evento que estou mudando
   const value = event.target.value; //Pegando valor do evento
   estilos[name](value); //Pegando o objeto e atribuindo valor
+  salvarValores(name, value);
+  mostrarCss();
+}
+
+function salvarValores(name, value) {
+  localStorage[name] = value; //Salvando a ação dentro do localStorage
+}
+
+function setarValores() {
+  const properties = Object.keys(localStorage); //Pegando as chaves salvas do local storage
+  properties.forEach((propertie) => {
+    estilos[propertie](localStorage[propertie]);
+    form.elements[propertie].value = localStorage[propertie]; //Pega o valor das propriedades setado dentro dos elementos do formulario
+  });
   mostrarCss();
 }
 
@@ -68,3 +82,5 @@ copiar.addEventListener("click", () => {
       console.error("Erro ao copiar o código: ", err);
     });
 });
+
+setarValores();

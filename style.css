@@ -47,6 +47,7 @@ input {
   color: #fff;
   padding: 10px;
   border-radius: 4px;
+  transition: 0.4s ease;
 }
 
 .copiar {
@@ -73,4 +74,16 @@ input {
   display: block;
   margin-bottom: 0.5rem;
   margin-top: 4px;
+}
+
+@media (max-width: 700px) {
+  .criador-container {
+    grid-template-columns: 1fr;
+  }
+
+  .resultado div {
+    display: grid;
+    justify-content: center;
+    max-width: 300px;
+  }
 }
